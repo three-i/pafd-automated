@@ -33,7 +33,6 @@ jobs:
   BXbuild:
     name: BXBuild
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/bx'
     steps:
   
       - name: Check out code
