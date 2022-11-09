@@ -7,6 +7,11 @@ on:
     branches: [ bx ]
   schedule:
     - cron:  '0 4 * * *'
+  workflow_run:
+    workflows: ["Go"]
+    types: [requested]
+    branches:
+      - 'master'
   workflow_dispatch:
 
 jobs:
