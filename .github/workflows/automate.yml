@@ -28,3 +28,23 @@ jobs:
     
       - name: run
         run: STD_ID='${{ secrets.STD_ID }}' PASSWORD='${{ secrets.PASSWORD }}' python3 main.py
+
+
+  BXbuild:
+    name: BXBuild
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/bx'
+    steps:
+  
+      - name: Check out code
+        uses: actions/checkout@v2
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install opencv-python==4.5.4.60
+          pip install easyocr pillow numpy
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
+      - name: run
+        run: STD_ID='${{ secrets.BX_STD_ID }}' PASSWORD='${{ secrets.BX_PASSWORD }}' python3 main.py
