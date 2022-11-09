@@ -2,9 +2,9 @@ name: Go
 
 on:
   push:
-    branches: [ master ]
+    branches: [ bx ]
   pull_request:
-    branches: [ master ]
+    branches: [ bx ]
   schedule:
     - cron:  '0 4 * * *'
   workflow_dispatch:
@@ -27,4 +27,4 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
       - name: run
-        run: STD_ID='${{ secrets.STD_ID }}' PASSWORD='${{ secrets.PASSWORD }}' python3 main.py
+        run: STD_ID='${{ secrets.BX_STD_ID }}' PASSWORD='${{ secrets.BX_PASSWORD }}' python3 main.py
