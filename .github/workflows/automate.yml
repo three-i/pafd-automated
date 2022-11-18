@@ -30,6 +30,8 @@ jobs:
           pip install opencv-python==4.5.4.60
           pip install easyocr pillow numpy
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip uninstall cryptography
+          pip install cryptography==36.0.2
     
       - name: run
         run: STD_ID='${{ secrets.BX_STD_ID }}' PASSWORD='${{ secrets.BX_PASSWORD }}' python3 main.py
